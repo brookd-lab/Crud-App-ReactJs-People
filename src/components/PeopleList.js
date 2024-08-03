@@ -1,10 +1,8 @@
-import './App.css';
-// import Test from './components/Input';
-// import Edit from './components/Edit';
-import PeopleList from './components/PeopleList';
 import {useState} from 'react';
+import Test from './Input';
+import Edit from './Edit';
 
-function App() {
+function PeopleList() {
   const [people, setPeople] = useState([
     {"name":"jessica"},
     {"name":"sammy"},
@@ -22,10 +20,7 @@ function App() {
     </div>
   ));
 
-  const alertPerson = (i) => {
-    alert(people[i].name);
-  }
-
+  
   const addPerson = (name) => {   
     const person = {"name": name};
     setPeople([...people, person]);
@@ -39,18 +34,18 @@ function App() {
   }
 
   const editPerson = (personData, index) => {
+    //console.log(`Editing person: ${personData.name}`)
     setPerson(personData.name);
     setIndex(index);
   }
 
   return (
-    <div className="App">
-      {/* <Test addPerson={addPerson} />
+    <div>
+      <Test addPerson={addPerson} />
       <p>{peopleMap}</p>
-      <Edit i={index} person={person} setPerson={setPerson} people={people} setPeople={setPeople}  />  */}
-      <PeopleList></PeopleList>
+      <Edit index={index} person={person} setPerson={setPerson} people={people} setPeople={setPeople}  /> 
     </div>
   );
 }
 
-export default App;
+export default PeopleList;
